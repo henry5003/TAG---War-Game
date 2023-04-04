@@ -36,9 +36,9 @@ public abstract class Player {
      *
      * @param name the player name to set
      */
-    public void setName(String name) {
-        this.name = name;
-    }
+    // public void setName(String name) {
+    //     this.name = name;
+    // }
 
     /**
      * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
