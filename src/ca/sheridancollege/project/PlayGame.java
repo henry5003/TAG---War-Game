@@ -1,5 +1,10 @@
+package ca.sheridancollege.project;
 
-import ca.sheridancollege.project.Game;
+/**
+ * @authors zohair, henry, manh, smith
+ */
+
+// This class contains the main method that creates and starts the Game object
 
 public class PlayGame {
     public static void main(String[] args) {
