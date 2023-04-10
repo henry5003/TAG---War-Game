@@ -7,7 +7,7 @@ public class RealPlayer extends Player {
     public GroupOfCards getHand() {
         return hand;
     }
-
+ // 
     public void setHand(GroupOfCards hand) {
         this.hand = hand;
     }
