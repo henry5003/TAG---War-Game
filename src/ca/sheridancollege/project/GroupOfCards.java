@@ -1,72 +1,125 @@
-/**
- * SYST 17796 Project Base code.
- * Students can modify and extend to implement their game.
- * Add your name as an author and the date!
- */
+///**
+// * SYST 17796 Project Base code.
+// * Students can modify and extend to implement their game.
+// * Add your name as an author and the date!
+// */
+//package ca.sheridancollege.project;
+//
+//import java.util.ArrayList;
+//import java.util.Collections;
+//
+//import ca.sheridancollege.project.Card.SUITS;
+//import ca.sheridancollege.project.Card.VALUE;;
+//
+///**
+// * A concrete class that represents any grouping of cards for a Game. HINT, you
+// * might want to subclass this more than
+// * once. The group of cards has a maximum size attribute which is flexible for
+// * reuse.
+// *
+// * @author dancye
+// * @author Paul Bonenfant Jan 2020
+// */
+//public class GroupOfCards {
+//
+//    // The group of cards, stored in an ArrayList
+//    private ArrayList<Card> cards;
+//    private int size;// the size of the grouping
+//
+//    public GroupOfCards(int size) {
+//        this.size = size;
+//    }
+//
+//    /**
+//     * A method that will get the group of cards as an ArrayList
+//     *
+//     * @return the group of cards.
+//     */
+//    public ArrayList<Card> getCards() {
+//        return cards;
+//    }
+//
+//    public void shuffle() {
+//        Collections.shuffle(cards);
+//    }
+//
+//    /**
+//     * @return the size of the group of cards
+//     */
+//    public int getSize() {
+//        return size;
+//    }
+//
+//    // /**
+//    //  * @param size the max size for the group of cards
+//    //  */
+//    // public void setSize(int size) {
+//    //     this.size = size;
+//    // }
+//
+//    //Generate Possible Cards
+//    public void generateCards(int size) {
+//        int numCards = 0;
+//        for (SUITS mySuit : SUITS.values()) {
+//            for (VALUE myVal : VALUE.values()) {
+//                cards.add(numCards++, new Card(mySuit, myVal));
+//
+//            }
+//
+//        }
+//    };
+//
+//}// end class
+
+
+
+
 package ca.sheridancollege.project;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import ca.sheridancollege.project.Card.SUITS;
-import ca.sheridancollege.project.Card.VALUE;;
-
-/**
- * A concrete class that represents any grouping of cards for a Game. HINT, you
- * might want to subclass this more than
- * once. The group of cards has a maximum size attribute which is flexible for
- * reuse.
- *
- * @author dancye
- * @author Paul Bonenfant Jan 2020
- */
 public class GroupOfCards {
 
-    // The group of cards, stored in an ArrayList
     private ArrayList<Card> cards;
-    private int size;// the size of the grouping
 
-    public GroupOfCards(int size) {
-        this.size = size;
+    public GroupOfCards() {
+        cards = new ArrayList<>();
     }
 
-    /**
-     * A method that will get the group of cards as an ArrayList
-     *
-     * @return the group of cards.
-     */
     public ArrayList<Card> getCards() {
         return cards;
+    }
+
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
+    public void generateCards() {
+        for (Card.Suit suit : Card.Suit.values()) {
+            for (Card.Value value : Card.Value.values()) {
+                cards.add(new Card(suit, value));
+            }
+        }
     }
 
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
+    public Card removeCard() {
+        if (cards.isEmpty()) {
+            return null;
+        }
+        return cards.remove(0);
     }
 
-    // /**
-    //  * @param size the max size for the group of cards
-    //  */
-    // public void setSize(int size) {
-    //     this.size = size;
-    // }
+    public void addCard(Card drawnCard) {
+        cards.add(drawnCard);
+    }
 
-    //Generate Possible Cards
-    public void generateCards(int size) {
-        int numCards = 0;
-        for (SUITS mySuit : SUITS.values()) {
-            for (VALUE myVal : VALUE.values()) {
-                cards.add(numCards++, new Card(mySuit, myVal));
+    public void removeCard(Card card) {
+        cards.remove(card);
+    }
 
-            }
-
-        }
-    };
-
-}// end class
+}
