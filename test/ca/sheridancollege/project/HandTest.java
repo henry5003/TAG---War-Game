@@ -10,8 +10,6 @@ import static org.junit.Assert.*;
 import ca.sheridancollege.project.Suit;
 import ca.sheridancollege.project.Rank;
 
-
-
 public class HandTest {
 
     private Hand hand;
